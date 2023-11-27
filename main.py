@@ -4,10 +4,10 @@ import json
 from datetime import datetime 
 from pprint import pprint
 from util import formata_data, formata_e_valida_cpf
-from Cliente import cria_cliente, atualiza_cliente, 
-from Produto import *
-from Venda import *
-from Vendedor  import * 
+from Cliente import cria_cliente, atualiza_cliente, informa_cliente, deleta_cliente
+from Produto import cria_produto, atualiza_produto, informa_produto, deleta_produto
+from Venda import cria_Venda, atualiza_Venda, informa_Venda, deleta_Venda
+from Vendedor  import cria_Vendedor, atualiza_Vendedor, informa_Vendedor, deleta_Vendedor 
 
 
 url = "https://projetofinalpersistenciadados-default-rtdb.firebaseio.com/"
