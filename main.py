@@ -6,8 +6,8 @@ from pprint import pprint
 from util import formata_data, formata_e_valida_cpf
 from Cliente import cria_cliente, atualiza_cliente, informa_cliente, deleta_cliente
 from Produto import cria_produto, atualiza_produto, informa_produto, deleta_produto
-from Venda import cria_Venda, atualiza_Venda, informa_Venda, deleta_Venda
-from Vendedor  import cria_Vendedor, atualiza_Vendedor, informa_Vendedor, deleta_Vendedor 
+from Venda import cria_venda, atualiza_venda, informa_venda, deleta_venda
+from Vendedor  import cria_vendedor, atualiza_vendedor, informa_vendedor, deleta_vendedor 
 
 
 url = "https://projetofinalpersistenciadados-default-rtdb.firebaseio.com/"
@@ -27,3 +27,22 @@ print('''
     digite 4 para manipular Vendedor
     digite 5 para manipular Ver Banco de Dados
 ''')
+
+escolha1 = input("Digite sua escolha: ")
+
+if escolha1 == "1":
+    print("escolha 1")
+elif escolha1 == "2":
+    print("escolha 2")
+
+elif escolha1 == "3":
+    print("escolha 3")
+
+elif escolha1 == "4":
+    print("escolha 4")
+
+elif escolha1 == "5":
+    print("escolha 5")
+
+elif escolha1 == "0":
+    print("escolha 0")
