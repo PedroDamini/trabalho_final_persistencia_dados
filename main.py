@@ -5,6 +5,10 @@ from datetime import datetime
 from pprint import pprint
 from util import *
 from Cliente import *
+from Produto import *
+from Venda import *
+from Vendedor  import * 
+
 
 url = "https://projetofinalpersistenciadados-default-rtdb.firebaseio.com/"
 
@@ -16,17 +20,15 @@ def informa_bd():
 
 ########################################################################   HOME   ################################################################################################################################################
 
-def coletar_dados_cliente(stdscr, atualizando=False):
+def coletar_dados_cliente(stdscr, cliente_id=None):
     stdscr.clear()
 
-    if atualizando:
-        stdscr.addstr(0, 0, "Digite a ID do cliente que deseja atualizar:")
-        stdscr.refresh()
-        cliente_id = stdscr.getstr(1, 0, 50).decode('utf-8')
+    if cliente_id:
+        stdscr.addstr(0, 0, f"Editando cliente com ID: {cliente_id}")
     else:
-        stdscr.addstr(0, 0, "Se não estiver atualizando, deixe a ID em branco.")
-        stdscr.refresh()
-        cliente_id = stdscr.getstr(1, 0, 50).decode('utf-8')
+        stdscr.addstr(0, 0, "Criando novo cliente. Deixe a ID em branco.")
+
+    stdscr.refresh()
 
     stdscr.addstr(3, 0, "CPF do Cliente:")
     stdscr.refresh()
