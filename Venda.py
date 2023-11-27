@@ -38,7 +38,7 @@ def deleta_venda(id):
     print(requisicao)
     return requisicao.text
 
-pprint(cria_venda(dadosvenda))
+# pprint(cria_venda(dadosvenda))
 # pprint(atualiza_venda(dadosvenda, id))
 # pprint(informa_venda())
 # pprint(deleta_venda(id))

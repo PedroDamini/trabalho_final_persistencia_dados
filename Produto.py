@@ -35,7 +35,7 @@ def deleta_produto(id):
     print(requisicao)
     return requisicao.text
 
-pprint(cria_produto(dadosproduto))
+# pprint(cria_produto(dadosproduto))
 # pprint(atualiza_produto(dadosproduto, id))
 # pprint(informa_produto())
 # pprint(deleta_produto(id))
