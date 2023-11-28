@@ -24,9 +24,12 @@ def cria_cliente(dados):
     return requisicao.text
 
 def atualiza_cliente(dados, id):
-    requisicao = requests.patch(f'{url}/Cliente/{id}/.json', data=json.dumps(dados))
-    print(requisicao)
-    return requisicao.text
+    if id:
+        requisicao = requests.patch(f'{url}/Cliente/{id}/.json', data=json.dumps(dados))
+        print(requisicao)
+        return requisicao.text
+    else:
+        return "nenhum id informado"
 
 def informa_cliente():
     requisicao = requests.get(f'{url}/Cliente.json')
@@ -46,30 +49,58 @@ def deleta_cliente(id):
 
 def menu_clientes():
     print('''
-        digite 1 para criar cliente
-        digite 2 para atualizar cliente
-        digite 3 para deletar cliente
-        digite 4 para ver clientes
-        digite 0 para voltar
+        Digite 1 para criar cliente
+        Digite 2 para atualizar cliente
+        Digite 3 para deletar cliente
+        Digite 4 para ver clientes
+        Digite 0 para voltar
     ''')
-    escolha1 = input("Digite sua escolha: ")
-    
-    if escolha1 == "1":
-        return "escolha 1"
+    escolha = input("Digite sua escolha: ")
 
-    elif escolha1 == "2":
-        return "escolha 2"
+    if escolha == "1":
+        print("Digite os dados do cliente:")
+        cpf_cliente: str = input("CPF do cliente: ")
+        nome_cliente: str = input("Nome do cliente: ")
 
-    elif escolha1 == "3":
-        return "escolha 3"
+        dados_cliente = {
+            "cpfCliente": formata_e_valida_cpf(cpf_cliente),
+            "nomeCliente": nome_cliente
+        }
+        return cria_cliente(dados_cliente)
 
-    elif escolha1 == "4":
-        return "escolha 4"
+    elif escolha == "2":
+        print("Digite a ID do cliente que deseja atualizar:")
+        id_cliente = input("ID do cliente: ")
+        if not id:
+            print("nenhum id informado")
+            return "nenhum id informado"
+        
+        print("Digite os novos dados do cliente:")
+        cpf_cliente: str = input("Novo CPF do cliente: ")
+        nome_cliente: str = input("Novo nome do cliente: ")
 
-    elif escolha1 == "5":
-        return "escolha 5"
+        dados_cliente = {
+            "cpfCliente": formata_e_valida_cpf(cpf_cliente),
+            "nomeCliente": nome_cliente
+        }
+        return atualiza_cliente(dados_cliente, id_cliente)
 
-    elif escolha1 == "0":
+    elif escolha == "3":
+        print("Digite a ID do cliente que deseja deletar:")
+        id_cliente = input("ID do cliente: ")
+        if not id:
+            print("nenhum id informado")
+            return "nenhum id informado"
+        return deleta_cliente(id_cliente)
+
+    elif escolha == "4":
+        clientes = informa_cliente()
+        print("Lista de clientes:")
+        for id_cliente, dados_cliente in clientes.items():
+            print(f"ID: {id_cliente}, CPF: {dados_cliente['cpfCliente']}, Nome: {dados_cliente['nomeCliente']}")
+        return "Clientes listados"
+
+    elif escolha == "0":
         return "saiu"
     
     else:
