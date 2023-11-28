@@ -18,6 +18,25 @@ def informa_bd():
     dic_requisicao = requisicao.json()
     return dic_requisicao
 
+def primeira_escolha(escolha1):
+    if escolha1 == "1":
+        return "escolha 1"
+
+    elif escolha1 == "2":
+        return "escolha 1"
+
+    elif escolha1 == "3":
+        return "escolha 1"
+
+    elif escolha1 == "4":
+        return "escolha 1"
+
+    elif escolha1 == "5":
+        return "escolha 1"
+
+    elif escolha1 == "0":
+        return "escolha 1"
+
 ########################################################################   HOME   ################################################################################################################################################
 
 print('''
@@ -30,19 +49,4 @@ print('''
 
 escolha1 = input("Digite sua escolha: ")
 
-if escolha1 == "1":
-    print("escolha 1")
-elif escolha1 == "2":
-    print("escolha 2")
-
-elif escolha1 == "3":
-    print("escolha 3")
-
-elif escolha1 == "4":
-    print("escolha 4")
-
-elif escolha1 == "5":
-    print("escolha 5")
-
-elif escolha1 == "0":
-    print("escolha 0")
+primeira_escolha(escolha1)
