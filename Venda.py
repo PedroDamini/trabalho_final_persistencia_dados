@@ -7,14 +7,14 @@ from pprint import pprint
 
 url = "https://projetofinalpersistenciadados-default-rtdb.firebaseio.com/"
 
-dadosvenda = {
-    "dataVenda": formata_data(datetime.now()),
-    "idCliente": "-NkCAlGlECAnU8uEiY07",
-    "idVendedor": "-NkD3KdgfAbaB9lamTTD",
-    "idProduto": "-NkD2iQJXXYVc7oL6zjT",
-    "valorvenda": "R$115,00"    
-}
-id = "-NkD2GY81lsSDk3yHSJy"
+# dadosvenda = {
+#     "dataVenda": formata_data(datetime.now()),
+#     "idCliente": "-NkCAlGlECAnU8uEiY07",
+#     "idVendedor": "-NkD3KdgfAbaB9lamTTD",
+#     "idProduto": "-NkD2iQJXXYVc7oL6zjT",
+#     "valorVenda": "R$115,00"    
+# }
+# id = "-NkD2GY81lsSDk3yHSJy"
 
 
 def cria_venda(dados):
@@ -45,31 +45,70 @@ def deleta_venda(id):
 
 def menu_vendas():
     print('''
-        digite 1 para criar venda
-        digite 2 para atualizar venda
-        digite 3 para deletar venda
-        digite 4 para ver vendas
-        digite 0 para voltar
+        Digite 1 para criar Venda
+        Digite 2 para atualizar Venda
+        Digite 3 para deletar Venda
+        Digite 4 para ver Vendas
+        Digite 0 para sair
     ''')
-    escolha1 = input("Digite sua escolha: ")
+    escolha = input("Digite sua escolha: ")
+
+    if escolha == "1":
+        print("Digite os dados dados Venda:")
+        idCliente: str = input("id do cliente: ")
+        idVendedor: str = input("id co vendedor: ")
+        idProduto: list = input("IDs dos produtos: ")
+        valorVenda: str = input("Valor da venda: ")
+
+        dados_venda = {
+            "dataVenda": formata_data(datetime.now()),
+            "idCliente": idCliente,
+            "idVendedor": idVendedor,
+            "idProduto": idProduto,
+            "valorVenda": valorVenda    
+        }
+        return cria_venda(dados_venda)
+
+    elif escolha == "2":
+        print("Digite a ID da venda que deseja atualizar:")
+        id_venda = input("ID do venda: ")
+        if not id:
+            print("nenhum id informado")
+            return "nenhum id informado"
+        
+        print("Digite os dados dados Venda:")
+        idCliente: str = input("id do cliente: ")
+        idVendedor: str = input("id co vendedor: ")
+        idProduto: list = input("IDs dos produtos: ")
+        valorVenda: str = input("Valor da venda: ")
+
+        dados_venda = {
+            "dataVenda": formata_data(datetime.now()),
+            "idCliente": idCliente,
+            "idVendedor": idVendedor,
+            "idProduto": idProduto,
+            "valorVenda": valorVenda    
+        }
+        return atualiza_venda(dados_venda, id_venda)
+
+    elif escolha == "3":
+        print("Digite a ID do vendedor que deseja deletar:")
+        id_vendedor = input("ID do vendedor: ")
+        if not id:
+            print("nenhum id informado")
+            return "nenhum id informado"
+        return deleta_vendedor(id_vendedor)
     
-    if escolha1 == "1":
-        return "escolha 1"
 
-    elif escolha1 == "2":
-        return "escolha 2"
+    elif escolha == "4":
+        vendedores = informa_vendedor()
+        print("Lista de vendedores:")
+        for id_vendedor, dados_vendedor in vendedores.items():
+            print(f"ID: {id_vendedor}, nome: {dados_vendedor['nomeVendedor']}")
+        return "vendedores listados"
 
-    elif escolha1 == "3":
-        return "escolha 3"
-
-    elif escolha1 == "4":
-        return "escolha 4"
-
-    elif escolha1 == "5":
-        return "escolha 5"
-
-    elif escolha1 == "0":
-        return "saiu"
+    elif escolha == "0":
+        return "saindo..."
     
     else:
         print("escolha inválida")

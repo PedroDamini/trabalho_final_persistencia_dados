@@ -39,7 +39,7 @@ def deleta_vendedor(id):
 # pprint(informa_vendedor())
 # pprint(deleta_vendedor(id))
 
-def menu_vendedores():
+def menu_vendedor():
     print('''
         Digite 1 para criar Vendedor
         Digite 2 para atualizar Vendedor
@@ -58,36 +58,34 @@ def menu_vendedores():
         return cria_vendedor(dados_vendedor)
 
     elif escolha == "2":
-        print("Digite a ID do produto que deseja atualizar:")
-        id_produto = input("ID do produto: ")
+        print("Digite a ID do vendedor que deseja atualizar:")
+        id_vendedor = input("ID do vendedor: ")
         if not id:
             print("nenhum id informado")
             return "nenhum id informado"
         
-        print("Digite os novos dados do produto:")
-        descricaoProduto: str = input("descricao do Produto: ")
-        valorProduto: str = input("valor do Produto: ")
+        nomeVendedor: str = input("Digite o nome do vendedor: ")
 
-        dados_produto = {
-            "descricaoProduto": descricaoProduto,
-            "valorProduto": valorProduto    
+        dados_vendedor = {
+            "nomeVendedor": nomeVendedor  
         }
-        return atualiza_produto(dados_produto, id_produto)
+        return atualiza_vendedor(dados_vendedor, id_vendedor)
 
     elif escolha == "3":
-        print("Digite a ID do produto que deseja deletar:")
-        id_produto = input("ID do produto: ")
+        print("Digite a ID do vendedor que deseja deletar:")
+        id_vendedor = input("ID do vendedor: ")
         if not id:
             print("nenhum id informado")
             return "nenhum id informado"
-        return deleta_produto(id_produto)
+        return deleta_vendedor(id_vendedor)
+    
 
     elif escolha == "4":
-        produtos = informa_produto()
-        print("Lista de produtos:")
-        for id_produto, dados_produto in produtos.items():
-            print(f"ID: {id_produto}, descricao: {dados_produto['descricaoProduto']}, valor: {dados_produto['valorProduto']}")
-        return "Produtos listados"
+        vendedores = informa_vendedor()
+        print("Lista de vendedores:")
+        for id_vendedor, dados_vendedor in vendedores.items():
+            print(f"ID: {id_vendedor}, nome: {dados_vendedor['nomeVendedor']}")
+        return "vendedores listados"
 
     elif escolha == "0":
         return "saindo..."
