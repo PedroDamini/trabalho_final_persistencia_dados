@@ -38,3 +38,35 @@ def deleta_vendedor(id):
 # pprint(atualiza_vendedor(dadosvendedor, id))
 # pprint(informa_vendedor())
 # pprint(deleta_vendedor(id))
+
+def menu_vendedor():
+    print('''
+        digite 1 para criar vendedor
+        digite 2 para atualizar vendedor
+        digite 3 para deletar vendedor
+        digite 4 para ver vendedores
+        digite 0 para voltar
+    ''')
+    escolha1 = input("Digite sua escolha: ")
+    
+    if escolha1 == "1":
+        return "escolha 1"
+
+    elif escolha1 == "2":
+        return "escolha 2"
+
+    elif escolha1 == "3":
+        return "escolha 3"
+
+    elif escolha1 == "4":
+        return "escolha 4"
+
+    elif escolha1 == "5":
+        return "escolha 5"
+
+    elif escolha1 == "0":
+        return "saiu"
+    
+    else:
+        print("escolha inválida")
+        primeiro_menu()

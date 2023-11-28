@@ -43,3 +43,35 @@ def deleta_cliente(id):
 # atualiza_cliente(dadosCliente, id)
 # pprint(informa_cliente())
 # pprint(deleta_cliente(id))
+
+def menu_clientes():
+    print('''
+        digite 1 para criar cliente
+        digite 2 para atualizar cliente
+        digite 3 para deletar cliente
+        digite 4 para ver clientes
+        digite 0 para voltar
+    ''')
+    escolha1 = input("Digite sua escolha: ")
+    
+    if escolha1 == "1":
+        return "escolha 1"
+
+    elif escolha1 == "2":
+        return "escolha 2"
+
+    elif escolha1 == "3":
+        return "escolha 3"
+
+    elif escolha1 == "4":
+        return "escolha 4"
+
+    elif escolha1 == "5":
+        return "escolha 5"
+
+    elif escolha1 == "0":
+        return "saiu"
+    
+    else:
+        print("escolha inválida")
+        primeiro_menu()
