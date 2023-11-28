@@ -57,7 +57,7 @@ def menu_vendas():
         print("Digite os dados dados Venda:")
         idCliente: str = input("id do cliente: ")
         idVendedor: str = input("id co vendedor: ")
-        idProduto: list = eval('[' + input("IDs dos produtos: ") + ']')
+        idProduto = input("IDs dos produtos (separados por vírgulas): ").split(',')
         valorVenda: str = input("Valor da venda: ")
 
         dados_venda = {
@@ -65,7 +65,7 @@ def menu_vendas():
             "idCliente": idCliente,
             "idVendedor": idVendedor,
             "idProduto": idProduto,
-            "valorVenda": valorVenda    
+            "valorvenda": valorVenda    
         }
         return cria_venda(dados_venda)
 
@@ -79,7 +79,7 @@ def menu_vendas():
         print("Digite os dados dados Venda:")
         idCliente: str = input("id do cliente: ")
         idVendedor: str = input("id co vendedor: ")
-        idProduto: list = eval('[' + input("IDs dos produtos: ") + ']')
+        idProduto = input("IDs dos produtos (separados por vírgulas): ").split(',')
         valorVenda: str = input("Valor da venda: ")
 
         dados_venda = {
@@ -92,8 +92,8 @@ def menu_vendas():
         return atualiza_venda(dados_venda, id_venda)
 
     elif escolha == "3":
-        print("Digite a ID do vendedor que deseja deletar:")
-        id_venda: str = input("ID do vendedor: ")
+        print("Digite a ID do venda que deseja deletar:")
+        id_venda: str = input("ID do venda: ")
         if not id:
             print("nenhum id informado")
             return "nenhum id informado"
