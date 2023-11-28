@@ -46,7 +46,7 @@ def menu_produtos():
         Digite 2 para atualizar Produto
         Digite 3 para deletar Produto
         Digite 4 para ver Produtos
-        Digite 0 para voltar
+        Digite 0 para sair
     ''')
     escolha = input("Digite sua escolha: ")
 
@@ -94,7 +94,7 @@ def menu_produtos():
         return "Produtos listados"
 
     elif escolha == "0":
-        return "saiu"
+        return "saindo..."
     
     else:
         print("escolha inválida")

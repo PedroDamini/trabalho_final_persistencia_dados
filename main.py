@@ -27,6 +27,7 @@ def primeiro_menu():
         digite 3 para manipular Vendas
         digite 4 para manipular Vendedor
         digite 5 para Ver Banco de Dados
+        digite 0 para sair
     ''')
     escolha1 = input("Digite sua escolha: ")
     

@@ -53,7 +53,7 @@ def menu_clientes():
         Digite 2 para atualizar cliente
         Digite 3 para deletar cliente
         Digite 4 para ver clientes
-        Digite 0 para voltar
+        Digite 0 para sair
     ''')
     escolha = input("Digite sua escolha: ")
 
@@ -101,7 +101,7 @@ def menu_clientes():
         return "Clientes listados"
 
     elif escolha == "0":
-        return "saiu"
+        return "saindo..."
     
     else:
         print("escolha inválida")
